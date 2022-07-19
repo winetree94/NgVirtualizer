@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "virtualizer": {
+      "projectType": "library",
+      "root": "projects/virtualizer",
+      "sourceRoot": "projects/virtualizer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/virtualizer/ng-package.json",
+            "tsConfig": "projects/virtualizer/tsconfig.lib.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/virtualizer/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/virtualizer/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/virtualizer/src/test.ts",
+            "tsConfig": "projects/virtualizer/tsconfig.spec.json",
+            "karmaConfig": "projects/virtualizer/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "virtualizer"
 }
