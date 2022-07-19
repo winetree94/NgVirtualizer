@@ -16,6 +16,19 @@
     ],
     "injectables": [
         {
+            "name": "SampleService",
+            "id": "injectable-SampleService-1d21dc14e52a58f612f266756ee0c72ee82e279353dda5f9ac7bd0c8e74336b493a139412e7ae83be452e7a78ad8dd2bb7120bdce3c4b9f5f3239543fa81215a",
+            "file": "projects/virtualizer/sample/sample.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\n\n@Injectable()\nexport class SampleService { }\n",
+            "type": "injectable"
+        },
+        {
             "name": "VirtualizerService",
             "id": "injectable-VirtualizerService-6ccaaf078934ae46406dee25ea3de1c8f8e4f0438cfbfab4aab55dcc0ea62deadb0cda277ddce661f73123677961194719cedc8ed45ea0c1c0824e4cb655b86f",
             "file": "projects/virtualizer/src/lib/virtualizer.service.ts",
@@ -321,7 +334,7 @@
         },
         {
             "name": "SampleComponent",
-            "id": "component-SampleComponent-3c4122ae64643b26e6da4d03f29e441bbc457a4b3f80c7199455d43f2c592d10610381a2f0f5816aa2f86402dba36c60d0ce7c0fb7892cf8fe010aeb312f93e4",
+            "id": "component-SampleComponent-58e32944951e08c14c597fe3153b7ac0c81e646e0ec3edda405820fa5da521bafb391390151eb082c75dfea88b2f8a737017c5e9c9b45f4a4d0a478cbba4c4d6",
             "file": "projects/virtualizer/sample/sample.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -345,10 +358,39 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\n\n@Component({\n  selector: 'sample',\n  template: `\n    <div>hello world!</div>\n  `\n})\nexport class SampleComponent { }\n",
+            "sourceCode": "import { Component } from \"@angular/core\";\nimport { SampleService } from \"./sample.service\";\n\n@Component({\n  selector: 'sample',\n  template: `\n    <div>hello world!</div>\n  `\n})\nexport class SampleComponent {\n\n\n  public constructor(\n    private readonly sampleService: SampleService,\n  ) { }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": ""
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "sampleService",
+                        "type": "SampleService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "modifierKind": [
+                    123
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "sampleService",
+                        "type": "SampleService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "VirtualizerComponent",
@@ -407,17 +449,21 @@
     "modules": [
         {
             "name": "SampleModule",
-            "id": "module-SampleModule-7924e2b91fbed83d82039e444b8a8b5304150bb34cd983f2e618ca3561f18dd2daa47d4211cdff94892ce980d352d3d705436a376894cf8cb55e5e35297eee69",
+            "id": "module-SampleModule-e95b45cf4ed3dc4c19e0817d3973cc3560260dc5a32d77a932098544922b84dfad76464bd304446adb3458ab8992e5b63e482698950c51a0ca396c16f73df7a0",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/virtualizer/sample/sample.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SampleComponent } from \"./sample.component\";\n\n@NgModule({\n  declarations: [\n    SampleComponent,\n  ]\n})\nexport class SampleModule { }\n",
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SampleComponent } from \"./sample.component\";\nimport { SampleService } from \"./sample.service\";\n\n@NgModule({\n  declarations: [\n    SampleComponent,\n  ],\n  providers: [\n    SampleService,\n  ],\n})\nexport class SampleModule { }\n",
             "children": [
                 {
                     "type": "providers",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "SampleService"
+                        }
+                    ]
                 },
                 {
                     "type": "declarations",
@@ -516,7 +562,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Header.stories.ts",
+                "file": "stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -526,16 +572,6 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -547,6 +583,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -605,21 +651,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -699,38 +745,6 @@
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
-            "stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-                }
-            ],
             "stories/Page.stories.ts": [
                 {
                     "name": "LoggedIn",
@@ -762,6 +776,38 @@
                     "type": "Story<Page>",
                     "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
+            ],
+            "stories/Header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Header>",
+                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -770,7 +816,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 3,
         "status": "low",
         "files": [
             {
@@ -778,6 +824,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "SampleComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/sample/sample.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "SampleService",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
