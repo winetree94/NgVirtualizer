@@ -12,13 +12,68 @@
             "properties": [],
             "indexSignatures": [],
             "methods": []
+        },
+        {
+            "name": "VContext",
+            "id": "interface-VContext-3b87f0be63f14e35201bfbd7b451ee73c98d06f427ca432493d24e421a48a13474326473edfb24d70e70db1703618675c02fddbf2ada1986fe1a2094bb7e9e4c",
+            "file": "projects/virtualizer/src/lib/refs/context.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { InjectionToken } from \"@angular/core\";\n\nexport const V_CONTEXT = new InjectionToken<VContext>('')\n\nexport interface VContext<T = any> {\n  data: T;\n}\n",
+            "properties": [
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "VRect",
+            "id": "interface-VRect-8b4b1c32e2f4f15902c873933f730652b64d152340fcccd9cad862bbe54f19f5be7e4adb102ab1f36322b18e6a266d7910a3c83fd03220d1da4a98f5fd409533",
+            "file": "projects/virtualizer/src/lib/refs/rect.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface VRect {\n  position: number;\n  size: number;\n}\n\nexport type RectBy<T> = (\n  previous: VRect,\n  item: T,\n  index: number,\n  self: T[],\n) => VRect;\n",
+            "properties": [
+                {
+                    "name": "position",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "size",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
         }
     ],
     "injectables": [
         {
             "name": "SampleService",
             "id": "injectable-SampleService-1d21dc14e52a58f612f266756ee0c72ee82e279353dda5f9ac7bd0c8e74336b493a139412e7ae83be452e7a78ad8dd2bb7120bdce3c4b9f5f3239543fa81215a",
-            "file": "projects/virtualizer/sample/sample.service.ts",
+            "file": "projects/virtualizer/samples/sample.service.ts",
             "properties": [],
             "methods": [],
             "deprecated": false,
@@ -48,12 +103,365 @@
                 "line": 6
             },
             "type": "injectable"
+        },
+        {
+            "name": "VStore",
+            "id": "injectable-VStore-5b35d1e98cb8ddf9671207b9276c1a72ed1ac70b97f7794f53399d29544ffca29cde54aae5fcf309cc512cccd764f0bcf7173e39b1ac5f44bae3ae9cfbacab42",
+            "file": "projects/virtualizer/src/lib/store/store.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class VStore { }\n",
+            "type": "injectable"
         }
     ],
     "guards": [],
     "interceptors": [],
-    "classes": [],
-    "directives": [],
+    "classes": [
+        {
+            "name": "VRenderer",
+            "id": "class-VRenderer-7b2b8deb46917667c545781ef77cb0bd2850abed86e47d2f8238cef7082b1974c9a356f8bba4055e1783a82f0ed89518471ffa154eb1c17e10d83649b66f64c8",
+            "file": "projects/virtualizer/src/lib/refs/renderer.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { InjectionToken } from \"@angular/core\";\nimport { VRect } from \"./rect\";\n\nexport const V_RENDERER = new InjectionToken<VRenderer>('V_RENDERER');\n\nexport class VRenderer {\n\n  public constructor() {\n\n  }\n\n  public getRect(): VRect {\n    return {\n      position: 0,\n      size: 10,\n    }\n  }\n\n  public notifySizeChanged(\n    size: number,\n  ): void {\n\n  }\n\n  public trackBy(): void {\n\n  }\n\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6,
+                "modifierKind": [
+                    123
+                ]
+            },
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getRect",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "VRect",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "notifySizeChanged",
+                    "args": [
+                        {
+                            "name": "size",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "size",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "trackBy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [
+        {
+            "name": "VContainerDirective",
+            "id": "directive-VContainerDirective-8d13be781c6eb5c3ced927ab0ca2e85cd337f236320efe06adbc5080db7aa1add61d6661379becc96378fe56bf94dfb16efa39a7dc915a2016364b4839179d13",
+            "file": "projects/virtualizer/src/lib/container/container.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from \"@angular/core\";\nimport { VScrollDirective } from \"../scroll/scroll.directive\";\n\n@Directive({\n  selector: 'vContainer',\n})\nexport class VContainerDirective {\n\n  public constructor(\n    private readonly scroll: VScrollDirective,\n  ) { }\n\n}\n",
+            "selector": "vContainer",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "scroll",
+                        "type": "VScrollDirective",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 7,
+                "modifierKind": [
+                    123
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "scroll",
+                        "type": "VScrollDirective",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "VForDirective",
+            "id": "directive-VForDirective-24f188f27f8509b06244eefaa42b24c37ae303e986498bdc58c792e209d9f491854cff0731be5eeab278610625bd5cc471f170e1acda0602b27931b1fdff75ec",
+            "file": "projects/virtualizer/src/lib/renderer/for.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { ComponentFactoryResolver, Directive, HostBinding, Injector, TemplateRef, ViewContainerRef } from \"@angular/core\";\nimport { VContext } from \"../refs/context\";\nimport { VComponent } from \"./v.component\";\n\n@Directive({\n  selector: 'vFor',\n})\nexport class VForDirective<T> {\n\n  public constructor(\n    private readonly componentFactoryResolver: ComponentFactoryResolver,\n    private readonly viewContainerRef: ViewContainerRef,\n    private readonly templateRef: TemplateRef<VContext<T>>,\n    private readonly injector: Injector,\n  ) { }\n\n  public a(): void {\n    const factory = this.componentFactoryResolver.resolveComponentFactory(VComponent);\n  }\n\n}\n",
+            "selector": "vFor",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "a",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "componentFactoryResolver",
+                        "type": "ComponentFactoryResolver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<VContext<T>>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 8,
+                "modifierKind": [
+                    123
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "componentFactoryResolver",
+                        "type": "ComponentFactoryResolver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<VContext<T>>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "VItemDirective",
+            "id": "directive-VItemDirective-a2aa94ff5f297d95202ba5f441e35bed961e00eb0352a93286966f92a3122c47038c9d41f94a3b9737e1981ec9e9c71955e831d6ea70310a94e0cbe3846b19de",
+            "file": "projects/virtualizer/src/lib/renderer/item.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from \"@angular/core\";\n\n@Directive({\n  selector: 'vItem',\n})\nexport class VItemDirective {}\n",
+            "selector": "vItem",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": []
+        },
+        {
+            "name": "VScrollDirective",
+            "id": "directive-VScrollDirective-38b1eba0f4ddacfc178bfde287a9d999c5590994ff220a5d1f0e1a9468ed9ee9e5a89a0cdc32af3c15edc972d5a5dc1266c5158fe992502e489823c9524e5c2e",
+            "file": "projects/virtualizer/src/lib/scroll/scroll.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {\n  AfterViewInit,\n  Directive,\n  ElementRef,\n  OnInit,\n} from \"@angular/core\";\nimport { fromEvent } from \"rxjs\";\n\n@Directive({\n  selector: 'vScroll'\n})\nexport class VScrollDirective implements OnInit, AfterViewInit {\n\n  public constructor(\n    private readonly elementRef: ElementRef<HTMLElement>,\n  ) { }\n\n  public ngOnInit(): void {\n    fromEvent(this.elementRef.nativeElement, 'scroll');\n  }\n\n  public ngAfterViewInit(): void {\n\n  }\n\n}\n",
+            "selector": "vScroll",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "implements": [
+                "OnInit",
+                "AfterViewInit"
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "elementRef",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "modifierKind": [
+                    123
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "elementRef",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
     "components": [
         {
             "name": "ButtonComponent",
@@ -334,8 +742,8 @@
         },
         {
             "name": "SampleComponent",
-            "id": "component-SampleComponent-58e32944951e08c14c597fe3153b7ac0c81e646e0ec3edda405820fa5da521bafb391390151eb082c75dfea88b2f8a737017c5e9c9b45f4a4d0a478cbba4c4d6",
-            "file": "projects/virtualizer/sample/sample.component.ts",
+            "id": "component-SampleComponent-06f1d264bbc633f0870b5b9fd4803be5e83b7a7bee6abcd5ca0092ae5d85936384a27997aba606535943066ddf9191cd67dd88b3dbf3095395c9f0a4d27dd13e",
+            "file": "projects/virtualizer/samples/sample.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -358,7 +766,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\nimport { SampleService } from \"./sample.service\";\n\n@Component({\n  selector: 'sample',\n  template: `\n    <div>hello world!</div>\n  `\n})\nexport class SampleComponent {\n\n\n  public constructor(\n    private readonly sampleService: SampleService,\n  ) { }\n}\n",
+            "sourceCode": "import { Component } from \"@angular/core\";\nimport { SampleService } from \"./sample.service\";\n\n@Component({\n  selector: 'sample',\n  template: `\n    <div>hello world!</div>\n  `\n})\nexport class SampleComponent {\n  public constructor(\n    private readonly sampleService: SampleService,\n  ) { }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -393,23 +801,62 @@
             }
         },
         {
-            "name": "VirtualizerComponent",
-            "id": "component-VirtualizerComponent-a4e86706eb3a4b9b69e4bc4f5bfd301dcca464e77f632a60ffba0bfcd0fe1f85c661e725cec3a9e0014a2f62b102a1f33fd01f7ec126d26f18bd2518bf7ed098",
-            "file": "projects/virtualizer/src/lib/virtualizer.component.ts",
+            "name": "VComponent",
+            "id": "component-VComponent-00b3f5c88a8fa562815ebf1aaa9306b766df55f7a478fddbee8d8683d737834e9a2b3d78061cdb03ff807c9f77a7136e93226bfbc4b961e297b969b3de47a6b7",
+            "file": "projects/virtualizer/src/lib/renderer/v.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "lib-virtualizer",
+            "selector": "v",
             "styleUrls": [],
-            "styles": [],
-            "template": "<p>\n  virtualizer works!\n</p>\n",
+            "styles": [
+                ""
+            ],
+            "template": "",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "direction",
+                    "defaultValue": "'vertical'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "position",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'style.top'"
+                        }
+                    ]
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "ngOnInit",
@@ -417,29 +864,93 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 25,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
                 }
             ],
             "deprecated": false,
             "deprecationMessage": "",
-            "hostBindings": [],
+            "hostBindings": [
+                {
+                    "name": "style.top",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
             "hostListeners": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-virtualizer',\n  template: `\n    <p>\n      virtualizer works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class VirtualizerComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, HostBinding, Inject, OnInit, TemplateRef, ViewContainerRef } from \"@angular/core\";\nimport { VContext, V_CONTEXT } from \"../refs/context\";\nimport { V_TEMPLATE } from \"../refs/template\";\n\n@Component({\n  selector: 'v',\n  template: '',\n  styles: ['']\n})\nexport class VComponent<T> implements OnInit {\n\n  direction: string = 'vertical';\n  @HostBinding('style.top')\n  position: number = 0;\n  size: number = 0;\n\n  public constructor(\n    @Inject(V_TEMPLATE)\n    private readonly templateRef: TemplateRef<VContext<T>>,\n    @Inject(V_CONTEXT)\n    private readonly context: VContext<T>,\n    private readonly viewContainerRef: ViewContainerRef,\n  ) { }\n\n  public ngOnInit(): void {\n    this.viewContainerRef.createEmbeddedView(this.templateRef, this.context)\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "",
+            "stylesData": "\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 13
+                "args": [
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<VContext<T>>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "context",
+                        "type": "VContext<T>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "modifierKind": [
+                    123
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<VContext<T>>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "context",
+                        "type": "VContext<T>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
@@ -453,7 +964,7 @@
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "projects/virtualizer/sample/sample.module.ts",
+            "file": "projects/virtualizer/samples/sample.module.ts",
             "methods": [],
             "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SampleComponent } from \"./sample.component\";\nimport { SampleService } from \"./sample.service\";\n\n@NgModule({\n  declarations: [\n    SampleComponent,\n  ],\n  providers: [\n    SampleService,\n  ],\n})\nexport class SampleModule { }\n",
             "children": [
@@ -493,13 +1004,13 @@
         },
         {
             "name": "VirtualizerModule",
-            "id": "module-VirtualizerModule-2e495455925298c05c762920f7dd3c8946f5ae86176c16c6956ce4fd151d94206e24c64da63bddd85e7bcb7b368bb782fb50f477e1fb0ada94ceab7dd9cdc415",
+            "id": "module-VirtualizerModule-f1a3b4c75c31ac397681bc229411335fbf95f9fa2159706ba54837aae6b27f575ecb437c62214a1e3bf6fac6c29a2e0c1b605e38525a0e27b5e32ffee3bcbe4a",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/virtualizer/src/lib/virtualizer.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { VirtualizerComponent } from './virtualizer.component';\n\n\n\n@NgModule({\n  declarations: [\n    VirtualizerComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    VirtualizerComponent\n  ]\n})\nexport class VirtualizerModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { VContainerDirective } from './container/container.directive';\nimport { VForDirective } from './renderer/for.directive';\nimport { VItemDirective } from './renderer/item.directive';\nimport { VScrollDirective } from './scroll/scroll.directive';\n\n@NgModule({\n  imports: [],\n  declarations: [\n    VScrollDirective,\n    VContainerDirective,\n    VForDirective,\n    VItemDirective,\n  ],\n  exports: [\n    VScrollDirective,\n    VContainerDirective,\n    VForDirective,\n    VItemDirective,\n  ]\n})\nexport class VirtualizerModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -509,7 +1020,16 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "VirtualizerComponent"
+                            "name": "VContainerDirective"
+                        },
+                        {
+                            "name": "VForDirective"
+                        },
+                        {
+                            "name": "VItemDirective"
+                        },
+                        {
+                            "name": "VScrollDirective"
                         }
                     ]
                 },
@@ -521,7 +1041,16 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "VirtualizerComponent"
+                            "name": "VContainerDirective"
+                        },
+                        {
+                            "name": "VForDirective"
+                        },
+                        {
+                            "name": "VItemDirective"
+                        },
+                        {
+                            "name": "VScrollDirective"
                         }
                     ]
                 },
@@ -562,7 +1091,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Page.stories.ts",
+                "file": "stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -572,16 +1101,6 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -593,6 +1112,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -603,6 +1132,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Sample.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -651,6 +1190,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -661,15 +1210,57 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Header.stories.ts",
+                "file": "stories/Sample.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                "type": "Story<SampleComponent>",
+                "defaultValue": "(args: SampleComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "V_CONTEXT",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/virtualizer/src/lib/refs/context.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken<VContext>('')"
+            },
+            {
+                "name": "V_RENDERER",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/virtualizer/src/lib/refs/renderer.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken<VRenderer>('V_RENDERER')"
+            },
+            {
+                "name": "V_TEMPLATE",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/virtualizer/src/lib/refs/template.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken('V_TEMPLATE')"
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "RectBy",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "function",
+                "file": "projects/virtualizer/src/lib/refs/rect.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 178
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "projects/virtualizer/src/test.ts": [
@@ -745,6 +1336,38 @@
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
+            "stories/Header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Header>",
+                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                }
+            ],
             "stories/Page.stories.ts": [
                 {
                     "name": "LoggedIn",
@@ -777,22 +1400,12 @@
                     "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
             ],
-            "stories/Header.stories.ts": [
+            "stories/Sample.stories.ts": [
                 {
-                    "name": "LoggedIn",
+                    "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
+                    "file": "stories/Sample.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -802,25 +1415,75 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
+                    "file": "stories/Sample.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                    "type": "Story<SampleComponent>",
+                    "defaultValue": "(args: SampleComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "projects/virtualizer/src/lib/refs/context.ts": [
+                {
+                    "name": "V_CONTEXT",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/virtualizer/src/lib/refs/context.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken<VContext>('')"
+                }
+            ],
+            "projects/virtualizer/src/lib/refs/renderer.ts": [
+                {
+                    "name": "V_RENDERER",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/virtualizer/src/lib/refs/renderer.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken<VRenderer>('V_RENDERER')"
+                }
+            ],
+            "projects/virtualizer/src/lib/refs/template.ts": [
+                {
+                    "name": "V_TEMPLATE",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/virtualizer/src/lib/refs/template.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken('V_TEMPLATE')"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "projects/virtualizer/src/lib/refs/rect.ts": [
+                {
+                    "name": "RectBy",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "function",
+                    "file": "projects/virtualizer/src/lib/refs/rect.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 178
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
             {
-                "filePath": "projects/virtualizer/sample/sample.component.ts",
+                "filePath": "projects/virtualizer/samples/sample.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "SampleComponent",
@@ -829,7 +1492,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/virtualizer/sample/sample.service.ts",
+                "filePath": "projects/virtualizer/samples/sample.service.ts",
                 "type": "injectable",
                 "linktype": "injectable",
                 "name": "SampleService",
@@ -838,12 +1501,114 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/virtualizer/src/lib/virtualizer.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "VirtualizerComponent",
+                "filePath": "projects/virtualizer/src/lib/container/container.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "VContainerDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/refs/context.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "VContext",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/refs/context.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "V_CONTEXT",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/refs/rect.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "VRect",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/refs/renderer.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "VRenderer",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/refs/renderer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "V_RENDERER",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/refs/template.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "V_TEMPLATE",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/renderer/for.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "VForDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/renderer/item.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "VItemDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/renderer/v.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/scroll/scroll.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "VScrollDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/src/lib/store/store.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "VStore",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -977,6 +1742,26 @@
             },
             {
                 "filePath": "stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Sample.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Sample.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

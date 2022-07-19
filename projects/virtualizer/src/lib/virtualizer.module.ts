@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { VirtualizerComponent } from './virtualizer.component';
-
-
+import { VContainerDirective } from './container/container.directive';
+import { VForDirective } from './renderer/for.directive';
+import { VItemDirective } from './renderer/item.directive';
+import { VScrollDirective } from './scroll/scroll.directive';
 
 @NgModule({
+  imports: [],
   declarations: [
-    VirtualizerComponent
-  ],
-  imports: [
+    VScrollDirective,
+    VContainerDirective,
+    VForDirective,
+    VItemDirective,
   ],
   exports: [
-    VirtualizerComponent
+    VScrollDirective,
+    VContainerDirective,
+    VForDirective,
+    VItemDirective,
   ]
 })
 export class VirtualizerModule { }

@@ -3,19 +3,15 @@ import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { SampleComponent } from 'projects/virtualizer/samples/sample1/sample.component';
 import { SampleService } from 'projects/virtualizer/samples/sample1/sample.service';
-import { VirtualizerModule } from 'projects/virtualizer/src/public-api';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Sample',
+  title: 'Virtualizer/Virtualizer',
   component: SampleComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
   argTypes: {},
   decorators: [
     moduleMetadata({
-      imports: [
-        VirtualizerModule,
-      ],
       providers: [
         SampleService,
       ],
