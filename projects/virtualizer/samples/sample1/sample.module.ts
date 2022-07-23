@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { VirtualizerModule } from "projects/virtualizer/src/public-api";
+import { VirtualizerModule } from "virtualizer/core";
 import { SampleComponent } from "./sample.component";
 import { SampleService } from "./sample.service";
 

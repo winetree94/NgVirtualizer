@@ -11,10 +11,13 @@
     "lib": [
       "dom",
       "es2018"
-    ]
+    ],
+    "paths": {
+      "virtualizer/core": ["./projects/virtualizer/core/public-api.ts"],
+      "virtualizer/tools": ["./projects/virtualizer/tools/public-api.ts"]
+    }
   },
   "exclude": [
-    "src/test.ts",
     "**/*.spec.ts"
   ]
 }

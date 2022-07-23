@@ -2,6 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/virtualizer",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "main/public-api.ts"
   }
 }

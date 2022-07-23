@@ -3,7 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { SampleComponent } from 'projects/virtualizer/samples/sample1/sample.component';
 import { SampleService } from 'projects/virtualizer/samples/sample1/sample.service';
-import { VirtualizerModule } from 'projects/virtualizer/src/public-api';
+import { VirtualizerModule } from 'virtualizer/core';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {

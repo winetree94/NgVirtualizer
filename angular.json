@@ -6,7 +6,7 @@
     "virtualizer": {
       "projectType": "library",
       "root": "projects/virtualizer",
-      "sourceRoot": "projects/virtualizer/src",
+      "sourceRoot": "projects/virtualizer/main",
       "prefix": "lib",
       "architect": {
         "build": {
