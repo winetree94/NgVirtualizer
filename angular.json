@@ -67,5 +67,8 @@
       }
     }
   },
+  "cli": {
+    "schematicCollections": ["@angular-eslint/schematics"]
+  },
   "defaultProject": "virtualizer"
 }
