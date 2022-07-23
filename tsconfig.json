@@ -20,6 +20,13 @@
       "es2018",
       "dom"
     ],
+    "paths": {
+      // todo dist for import
+      "samples": ["./projects/samples/src/public-api"],
+      "virtualizer": ["./projects/virtualizer/main/public-api.ts"],
+      "virtualizer/core": ["./projects/virtualizer/core/public-api.ts"],
+      "virtualizer/tools": ["./projects/virtualizer/tools/public-api.ts"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -107,6 +107,27 @@
             "type": "injectable"
         },
         {
+            "name": "SamplesService",
+            "id": "injectable-SamplesService-75d05e5b597ab27be63cb883a08fda2bf5618ef1e6a2ef51299c48cce3a1dc64bc16e914f2b3c0243bc716bed5e42e693a1a9b1b48f1238500cdfacda528db0a",
+            "file": "projects/samples/src/lib/samples.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class SamplesService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        },
+        {
             "name": "VStore",
             "id": "injectable-VStore-5b35d1e98cb8ddf9671207b9276c1a72ed1ac70b97f7794f53399d29544ffca29cde54aae5fcf309cc512cccd764f0bcf7173e39b1ac5f44bae3ae9cfbacab42",
             "file": "projects/virtualizer/core/store/store.ts",
@@ -921,6 +942,59 @@
             "templateData": "<div>hello world</div>\n\n<div class=\"v-scroll\"\n     vScroll>\n  <div class=\"v-container\"\n       vContainer>\n    <div class=\"v-item\"\n         *vFor=\"let item of data;\">\n    </div>\n  </div>\n</div>\n"
         },
         {
+            "name": "SamplesComponent",
+            "id": "component-SamplesComponent-d13efef5b583f4d6adedc921f420eac351025093595be83fc4e5fe4ad75cebe1370363bff48802934b6642e02439bf804858a83a3df0e695425294bda7e14fed",
+            "file": "projects/samples/src/lib/samples.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-samples",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p>\n  samples works!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-samples',\n  template: `\n    <p>\n      samples works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class SamplesComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
             "name": "VComponent",
             "id": "component-VComponent-00b3f5c88a8fa562815ebf1aaa9306b766df55f7a478fddbee8d8683d737834e9a2b3d78061cdb03ff807c9f77a7136e93226bfbc4b961e297b969b3de47a6b7",
             "file": "projects/virtualizer/core/renderer/v.component.ts",
@@ -1127,6 +1201,54 @@
             ]
         },
         {
+            "name": "SamplesModule",
+            "id": "module-SamplesModule-0287e1311d26a8e215ac0a551417035b7aa4b23a0f0ff20106fdfd27677ed076bfce8287c6ea8d93b70c82cfffa7a957969926d8be4913596f00b2a170eadd0b",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/samples/src/lib/samples.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { SamplesComponent } from './samples.component';\nimport { VirtualizerModule } from 'virtualizer/core';\n\n@NgModule({\n  declarations: [\n    SamplesComponent\n  ],\n  imports: [\n    VirtualizerModule,\n  ],\n  exports: [\n    SamplesComponent\n  ]\n})\nexport class SamplesModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SamplesComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "VirtualizerModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SamplesComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "VirtualizerModule",
             "id": "module-VirtualizerModule-f1a3b4c75c31ac397681bc229411335fbf95f9fa2159706ba54837aae6b27f575ecb437c62214a1e3bf6fac6c29a2e0c1b605e38525a0e27b5e32ffee3bcbe4a",
             "description": "",
@@ -1191,6 +1313,16 @@
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/samples/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
             {
                 "name": "Large",
                 "ctype": "miscellaneous",
@@ -1270,6 +1402,15 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/samples/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
             },
             {
                 "name": "Secondary",
@@ -1382,7 +1523,19 @@
                 "defaultValue": "'1.0.0'"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "createResizeObserver",
+                "file": "projects/virtualizer/tools/resize-observer.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [],
+                "returnType": "Observable<void>"
+            }
+        ],
         "typealiases": [
             {
                 "name": "RectBy",
@@ -1398,6 +1551,27 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/samples/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/samples/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/samples/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
             "stories/Button.stories.ts": [
                 {
                     "name": "Large",
@@ -1607,7 +1781,21 @@
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "projects/virtualizer/tools/resize-observer.ts": [
+                {
+                    "name": "createResizeObserver",
+                    "file": "projects/virtualizer/tools/resize-observer.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [],
+                    "returnType": "Observable<void>"
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "projects/virtualizer/core/refs/rect.ts": [
@@ -1630,6 +1818,44 @@
         "count": 2,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/samples/src/lib/samples.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SamplesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/samples/src/lib/samples.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "SamplesService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/samples/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/samples/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
             {
                 "filePath": "projects/virtualizer/core/container/container.directive.ts",
                 "type": "directive",
@@ -1774,6 +2000,16 @@
                 "type": "injectable",
                 "linktype": "injectable",
                 "name": "SampleService",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/virtualizer/tools/resize-observer.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "createResizeObserver",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
