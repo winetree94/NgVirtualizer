@@ -28,8 +28,6 @@
       "virtualizer": ["../projects/virtualizer/main/public-api.ts"],
       "virtualizer/core": ["../projects/virtualizer/core/public-api.ts"],
       "virtualizer/tools": ["../projects/virtualizer/tools/public-api.ts"],
-      "samples": ["../projects/samples/src/public-api.ts"],
-      "samples/*": ["../projects/samples/src/*"],
     }
   },
   "include": [

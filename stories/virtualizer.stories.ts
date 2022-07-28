@@ -1,26 +1,18 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-import { moduleMetadata } from '@storybook/angular';
-import { Story, Meta } from '@storybook/angular/types-6-0';
-import { SampleComponent } from 'projects/virtualizer/samples/sample1/sample.component';
-import { SampleService } from 'projects/virtualizer/samples/sample1/sample.service';
+import { Story, Meta } from '@storybook/angular';
+import ButtonComponent from './button.component';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
   title: 'Virtualizer/Virtualizer',
-  component: SampleComponent,
+  component: ButtonComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
   argTypes: {},
-  decorators: [
-    moduleMetadata({
-      providers: [
-        SampleService,
-      ],
-    })
-  ],
+  // decorators: [],
 } as Meta;
 
 // More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args
-const Template: Story<SampleComponent> = (args: SampleComponent) => ({
+const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
   props: args,
 });
 
